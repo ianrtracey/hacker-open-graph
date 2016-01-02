@@ -1,0 +1,47 @@
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+<div class="block-center mt-xl wd-xl">
+   <!-- START panel-->
+   <div class="panel panel-dark panel-flat">
+      <div class="panel-heading text-center">
+         <a href="#">
+            <img src="<%= image_path('angle/logo.png') %>" alt="Image" class="block-center img-rounded" />
+         </a>
+      </div>
+      <div class="panel-body">
+         <p class="text-center pv">SIGN IN TO CONTINUE.</p>
+         <form role="form" data-parsley-validate="" novalidate="" class="mb-lg">
+            <div class="form-group has-feedback">
+                <%= f.email_field :email, autofocus: true, :id => "exampleInputEmail1", :class => "form-control", :placeholder => "Enter email"%>
+               <span class="fa fa-envelope form-control-feedback text-muted"></span>
+            </div>
+
+            <div class="form-group has-feedback">
+                <%= f.password_field :password, autocomplete: "off", :id => "exampleInputPassword1", "placeholder" => "Password", :class => "form-control"  %>
+               <span class="fa fa-lock form-control-feedback text-muted"></span>
+
+            </div>
+            <div class="clearfix">
+               <div class="checkbox c-checkbox pull-left mt0">
+                  <label>
+                    <% if devise_mapping.rememberable? -%>
+      <%= f.check_box :remember_me, :name => "remember" %>
+      <span class="fa fa-check"></span></label>
+
+      <%= f.label :remember_me %>
+                    <% end -%>
+               </div>
+               <div class="pull-right"><a href="/pages/recover" class="text-muted">Forgot your password?</a>
+               </div>
+            </div>
+            <%= f.submit "Log in", :class => "btn btn-block btn-primary mt-lg" %>
+         </form>
+      </div>
+   </div>
+   <!-- END panel-->
+</div>
+
+<% end %>
+

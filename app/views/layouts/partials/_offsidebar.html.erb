@@ -1,0 +1,78 @@
+<!-- START Off Sidebar (right)-->
+<nav>
+   <div role="tabpanel">
+      <!-- Nav tabs-->
+      <ul role="tablist" class="nav nav-tabs nav-justified">
+
+         <li role="presentation">
+            <a href="#app-chat" aria-controls="app-chat" role="tab" data-toggle="tab">
+               <em class="icon-user fa-lg"></em>
+            </a>
+         </li>
+      </ul>
+      <!-- Tab panes-->
+      <div class="tab-content" class="tab-pane fade in active">
+         
+         <div id="app-chat" role="tabpanel" class="tab-pane fade">
+            <h4 class="text-center text-thin"><%= @account.name %></h4>
+            <ul class="nav">
+               <!-- START list title-->
+               <li class="p">
+                  <small class="text-muted">YOU</small>
+               </li>
+               <!-- END list title-->
+               <li>
+                  <!-- START User status-->
+                  <a href="#" class="media-box p mt0">
+                     <span class="pull-right">
+                        <span class="circle circle-success circle-lg"></span>
+                     </span>
+   
+                     <!-- Contact info-->
+                     <span class="media-box-body">
+                        <span class="media-box-heading">
+                           <strong><%= current_user.name %></strong>
+                           <br/>
+                           <small class="text-muted"><%= current_user.email %></small>
+                        </span>
+                     </span>
+                  </a>
+                  <!-- END User status-->
+                 
+               </li>
+               <div class="p-lg text-center">
+                     <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "btn btn-purple btn-sm" %> 
+
+                  </div>
+               <!-- START list title-->
+               <li class="p">
+                  <small class="text-muted">TEAM (<%= @account.users.count %>)</small>
+               </li>
+               <!-- END list title-->
+               <% @account.users.each do |user| %>
+               <li>
+                  <!-- START User status-->
+                  <a href="#" class="media-box p mt0">
+                     <span class="pull-right">
+                        <span class="circle circle-lg"></span>
+                     </span>
+
+                     <!-- Contact info-->
+                     <span class="media-box-body">
+                        <span class="media-box-heading">
+                           <strong><%= user.name %></strong>
+                           <br/>
+                           <small class="text-muted"><%= user.email %></small>
+                        </span>
+                     </span>
+                  </a>
+                  <!-- END User status-->
+               <% end %>
+
+            </ul>
+            
+         </div>
+      </div>
+   </div>
+</nav>
+<!-- END Off Sidebar (right)-->

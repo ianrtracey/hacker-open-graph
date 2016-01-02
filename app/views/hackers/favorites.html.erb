@@ -1,0 +1,9 @@
+<h3>Favorites
+</h3>
+<div class="row">
+   <% @favorites.each do |hacker| %>
+   <div class="col-xs-6">
+   <%= render 'profile_card', :@hacker => hacker %>
+   </div>
+   <% end %>
+</div>

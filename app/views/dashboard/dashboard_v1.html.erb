@@ -1,0 +1,142 @@
+<div class="content-heading">
+   <!-- START Language list-->
+   <div class="pull-right">
+      <div class="btn-group">
+         <button type="button" data-toggle="dropdown" class="btn btn-default">English</button>
+         <ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
+            <li><a href="#" data-set-lang="en">English</a>
+            </li>
+            <li><a href="#" data-set-lang="es">Spanish</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <!-- END Language list    -->
+   Dashboard
+   <small data-localize="dashboard.WELCOME"></small>
+</div>
+<!-- START widgets box-->
+<div class="row">
+   <div class="col-lg-3 col-sm-6">
+      <!-- START widget-->
+      <div class="panel widget bg-primary">
+         <div class="row row-table">
+            <div class="col-xs-4 text-center bg-primary-dark pv-lg">
+               <em class="icon-cloud-upload fa-3x"></em>
+            </div>
+            <div class="col-xs-8 pv-lg">
+               <div class="h2 mt0">1700</div>
+               <div class="text-uppercase">Students</div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-lg-3 col-sm-6">
+      <!-- START widget-->
+      <div class="panel widget bg-purple">
+         <div class="row row-table">
+            <div class="col-xs-4 text-center bg-purple-dark pv-lg">
+               <em class="icon-globe fa-3x"></em>
+            </div>
+            <div class="col-xs-8 pv-lg">
+               <div class="h2 mt0">700
+                  <small>GB</small>
+               </div>
+               <div class="text-uppercase">Quota</div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-lg-3 col-md-6 col-sm-12">
+      <!-- START widget-->
+      <div class="panel widget bg-green">
+         <div class="row row-table">
+            <div class="col-xs-4 text-center bg-green-dark pv-lg">
+               <em class="icon-bubbles fa-3x"></em>
+            </div>
+            <div class="col-xs-8 pv-lg">
+               <div class="h2 mt0">500</div>
+               <div class="text-uppercase">Reviews</div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-lg-3 col-md-6 col-sm-12">
+      <!-- START date widget-->
+      <div class="panel widget">
+         <div class="row row-table">
+            <div class="col-xs-4 text-center bg-green pv-lg">
+               <!-- See formats: https://docs.angularjs.org/api/ng/filter/date-->
+               <div data-now="" data-format="MMMM" class="text-sm"></div>
+               <br/>
+               <div data-now="" data-format="D" class="h2 mt0"></div>
+            </div>
+            <div class="col-xs-8 pv-lg">
+               <div data-now="" data-format="dddd" class="text-uppercase"></div>
+               <br/>
+               <div data-now="" data-format="h:mm" class="h2 mt0"></div>
+               <div data-now="" data-format="a" class="text-muted text-sm"></div>
+            </div>
+         </div>
+      </div>
+      <!-- END date widget    -->
+   </div>
+</div>
+<div class="container-fluid">
+<!-- START DATATABLE 2 -->
+   <div class="row">
+      <div class="col-lg-12">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               Hack Arizona Registrants
+            </div>
+            <div class="panel-body">
+               <table id="datatable2" class="table table-striped table-hover">
+                  <thead>
+                     <tr>
+                        <th>Name</th>
+                        <th>School</th>
+                        <th>Major</th>
+                        <th>Class</th>
+                        <th>Hireable</th>
+
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <% @hackers.each do |hacker| %>
+                     <tr>
+                        <td><%= link_to "#{hacker.first_name} #{hacker.last_name}", hacker%></td>
+                        <td><%= hacker.school %></td>
+                        <td><%= hacker.major %></td>
+                        <td><%= hacker.graduation_date %></td>
+                        <td><%= render_hireable_pretty(hacker.hireable).html_safe %></td>
+                     </tr>
+                     <% end %>
+                  </tbody>
+                  <tfoot>
+                     <tr>
+                        <th>
+                           <input type="text" name="filter_name" placeholder="Filter Name" class="form-control input-sm datatable_input_col_search" />
+                        </th>
+                        <th>
+                           <input type="text" name="filter_school" placeholder="Filter School" class="form-control input-sm datatable_input_col_search" />
+                        </th>
+                        <th>
+                           <input type="text" name="filter_major" placeholder="Filter Major" class="form-control input-sm datatable_input_col_search" />
+                        </th>
+                        <th>
+                           <input type="text" name="filter_class" placeholder="Filter Class" class="form-control input-sm datatable_input_col_search" />
+                        </th>
+                        <th>
+                           <input type="text" name="filter_hireable" placeholder="Filter Hireable" class="form-control input-sm datatable_input_col_search" />
+                        </th>
+                     </tr>
+                  </tfoot>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- END DATATABLE 2 -->
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
