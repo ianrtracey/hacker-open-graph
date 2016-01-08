@@ -6,6 +6,8 @@ class DashboardController < ApplicationController
   def dashboard_v1
     @hackers = Hacker.all
     @account = current_user.account
+    @num_resumes = @hackers.select { |x| !x.resume.nil? }.count
+    @num_job_seekers = @hackers.select { |x| x.hireable }.count
   end
   def dashboard_v2
   end

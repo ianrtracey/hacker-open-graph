@@ -2,6 +2,9 @@ module HackerHelper
 	require 'net/http'
 
 	def external_profile_link_is_valid(profile_link)
+		if ["http://", ""].include?(profile_link.strip)
+			return false
+		end
 		return true 
 	end
 

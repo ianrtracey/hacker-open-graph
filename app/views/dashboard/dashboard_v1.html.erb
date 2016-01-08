@@ -12,75 +12,79 @@
       </div>
    </div>
    <!-- END Language list    -->
-   Dashboard
-   <small data-localize="dashboard.WELCOME"></small>
+   <%= current_user.account.name %>
+   <small>Welcome to Hack Arizona!</small>
 </div>
-<!-- START widgets box-->
 <div class="row">
-   <div class="col-lg-3 col-sm-6">
+   <div class="col-xs-6">
       <!-- START widget-->
-      <div class="panel widget bg-primary">
-         <div class="row row-table">
-            <div class="col-xs-4 text-center bg-primary-dark pv-lg">
-               <em class="icon-cloud-upload fa-3x"></em>
-            </div>
-            <div class="col-xs-8 pv-lg">
-               <div class="h2 mt0">1700</div>
-               <div class="text-uppercase">Students</div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="col-lg-3 col-sm-6">
-      <!-- START widget-->
-      <div class="panel widget bg-purple">
-         <div class="row row-table">
-            <div class="col-xs-4 text-center bg-purple-dark pv-lg">
-               <em class="icon-globe fa-3x"></em>
-            </div>
-            <div class="col-xs-8 pv-lg">
-               <div class="h2 mt0">700
-                  <small>GB</small>
-               </div>
-               <div class="text-uppercase">Quota</div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="col-lg-3 col-md-6 col-sm-12">
-      <!-- START widget-->
-      <div class="panel widget bg-green">
-         <div class="row row-table">
-            <div class="col-xs-4 text-center bg-green-dark pv-lg">
-               <em class="icon-bubbles fa-3x"></em>
-            </div>
-            <div class="col-xs-8 pv-lg">
-               <div class="h2 mt0">500</div>
-               <div class="text-uppercase">Reviews</div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="col-lg-3 col-md-6 col-sm-12">
-      <!-- START date widget-->
       <div class="panel widget">
-         <div class="row row-table">
-            <div class="col-xs-4 text-center bg-green pv-lg">
-               <!-- See formats: https://docs.angularjs.org/api/ng/filter/date-->
-               <div data-now="" data-format="MMMM" class="text-sm"></div>
-               <br/>
-               <div data-now="" data-format="D" class="h2 mt0"></div>
+         <div class="row row-table row-flush">
+            <div class="col-xs-6 bb br">
+               <div class="row row-table row-flush">
+                  <div class="col-xs-4 text-center text-info">
+                     <em class="fa fa-users fa-2x"></em>
+                  </div>
+                  <div class="col-xs-8">
+                     <div class="panel-body text-center">
+                        <h4 class="mt0"><%= @hackers.count %></h4>
+                        <p class="mb0 text-muted">HACKERS</p>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div class="col-xs-8 pv-lg">
-               <div data-now="" data-format="dddd" class="text-uppercase"></div>
-               <br/>
-               <div data-now="" data-format="h:mm" class="h2 mt0"></div>
-               <div data-now="" data-format="a" class="text-muted text-sm"></div>
+            <div class="col-xs-6 bb">
+               <div class="row row-table row-flush">
+                  <div class="col-xs-4 text-center text-danger">
+                     <em class="fa fa-music fa-2x"></em>
+                  </div>
+                  <div class="col-xs-8">
+                     <div class="panel-body text-center">
+                        <h4 class="mt0"><%= @num_job_seekers %></h4>
+                        <p class="mb0 text-muted">JOB SEEKERS</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row row-table row-flush">
+            <div class="col-xs-6 br">
+               <div class="row row-table row-flush">
+                  <div class="col-xs-4 text-center text-inverse">
+                     <em class="fa fa-code-fork fa-2x"></em>
+                  </div>
+                  <div class="col-xs-8">
+                     <div class="panel-body text-center">
+                        <h4 class="mt0"><%= @num_resumes %></h4>
+                        <p class="mb0 text-muted">ATTACHED A RESUME</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-xs-6">
+               <div class="row row-table row-flush">
+                  <div class="col-xs-4 text-center text-success">
+                     <em class="fa fa-inbox fa-2x"></em>
+                  </div>
+                  <div class="col-xs-8">
+                     <div class="panel-body text-center">
+                        <h4 class="mt0">10</h4>
+                        <p class="mb0 text-muted">NEW MESSAGES</p>
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
-      <!-- END date widget    -->
    </div>
+      <!-- END widget-->
+   <div class="col-xs-6">
+         <h4>Schools</h4>
+         <div>
+            <canvas id="chartjs-piechart" width="469" height="234" style="width: 469px; height: 234px;"></canvas>
+         </div>
+   </div>
+      
 </div>
 <div class="container-fluid">
 <!-- START DATATABLE 2 -->

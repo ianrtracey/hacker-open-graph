@@ -25,7 +25,7 @@ namespace :github do
 		end
 	end
 
-	task avatar: :environment do
+	task avatars: :environment do
 		Hacker.where.not(github: "http://").each do |hacker|
 			if !hacker.github.nil? && !hacker.github.empty?
 				begin

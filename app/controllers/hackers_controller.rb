@@ -12,12 +12,12 @@ class HackersController < ApplicationController
 	 	@hacker = Hacker.find(params[:id])
 	 	if type == "favorite"
 	 		current_user.favorites << @hacker
-	 		redirect_to :back, success: "You favorited #{@hacker.first_name} #{@hacker.last_name}"
+	 		redirect_to :back, notice: "You favorited #{@hacker.first_name} #{@hacker.last_name}"
 	 	elsif type = "unfavorite"
 	 		current_user.favorites.delete(@hacker)
 	 		redirect_to :back, notice: "#{@hacker.first_name} #{@hacker.last_name} unfavorited"
 	 	else
-	 		redirect_to :back, error: "Something went wrong"
+	 		redirect_to :back, notice: "Something went wrong"
 	 	end
 	end
 
