@@ -12,20 +12,10 @@ def get_options_array(questions, answer, type)
 	return answers.reject { |str| str.empty? } 
 end
 
-uri = URI('https://api.typeform.com/v0/form/C7QX2g?key=666784358a96968db6fe9195aaf3fc63571540c0&completed=true')
-response = Net::HTTP.get(uri)
-
-form = JSON.parse(response)
-questions = form['questions']
-
-form['responses'].each do |response|
-
+def save_response(response, questions)
 	answer = response['answers']
 	if !answer.nil?
-	if !Hacker.exists?(:first_name => answer['textfield_13632184'],
-		:last_name => answer['textfield_13632185'],
-		:email => answer['email_13632193'],
-		)
+	if !Hacker.exists?(:email => answer['email_13632193'])
 	Hacker.create(
 		:first_name => answer['textfield_13632184'],
 		:last_name => answer['textfield_13632185'],
@@ -50,11 +40,29 @@ form['responses'].each do |response|
 	end
 end
 
-
-
-
-
-
+def get_form(offset)
+	uri = URI("https://api.typeform.com/v0/form/C7QX2g?key=666784358a96968db6fe9195aaf3fc63571540c0&completed=true&offset=#{offset}")
+	response = Net::HTTP.get(uri)
+	form = JSON.parse(response)
+	return form
 end
+
+
+offset = 0
+form = get_form(offset)
+while form['responses'].count > 0
+	puts form['responses'].count
+	form['responses'].each do |response|
+			save_response(response, form['questions'])
+	end
+
+	offset += 900
+	form = get_form(offset)
+	puts form['responses'].count
+end
+
+
+
+  end
 end
 

@@ -1,14 +1,59 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
+<div class="container-fluid">
+      <!-- START widget-->
+      <div class="panel widget">
+         <div class="row row-table row-flush">
+            <div class="col-xs-4 bb">
+               <div class="row row-table row-flush">
+                  <div class="col-xs-4 text-center text-info">
+                     <em class="fa fa-users fa-2x"></em>
+                  </div>
+                  <div class="col-xs-4">
+                     <div class="panel-body text-center">
+                        <h4 class="mt0"><%= @tests %></h4>
+                        <p class="mb0 text-muted">HACKERS</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-xs-4 bb">
+               <div class="row row-table row-flush">
+                  <div class="col-xs-4 text-center text-danger">
+                     <em class="fa fa-graduation-cap fa-2x"></em>
+                  </div>
+                  <div class="col-xs-4">
+                     <div class="panel-body text-center">
+                        <h4 class="mt0">600</h4>
+                        <p class="mb0 text-muted">JOB SEEKERS</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-xs-4 bb">
+               <div class="row row-table row-flush">
+                  <div class="col-xs-4 text-center text-inverse">
+                     <em class="fa fa-file-text-o fa-2x"></em>
+                  </div>
+                  <div class="col-xs-4">
+                     <div class="panel-body text-center">
+                        <h4 class="mt0">400</h4>
+                        <p class="mb0 text-muted">RESUMES</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+
+</div>
 
 <div class="block-center mt-xl wd-xl">
    <!-- START panel-->
    <div class="panel panel-dark panel-flat">
       <div class="panel-heading text-center">
-         <a href="#">
-            <img src="<%= image_path('angle/logo.png') %>" alt="Image" class="block-center img-rounded" />
-         </a>
+         Cactus
       </div>
       <div class="panel-body">
          <p class="text-center pv">SIGN IN TO CONTINUE.</p>
@@ -42,6 +87,8 @@
    </div>
    <!-- END panel-->
 </div>
+
+      <!-- END widget-->
 
 <% end %>
 

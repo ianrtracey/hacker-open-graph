@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  devise_for :users, controllers: { sessions: "session" }
   # defaults to dashboard
-  root :to => redirect('/dashboard/dashboard_v1')
+  root :to => 'dashboard#dashboard_v1'
   
   # view routes
   get '/widgets' => 'widgets#index'
@@ -15,6 +15,11 @@ Rails.application.routes.draw do
     collection do
       get 'favorites'
     end
+  end
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+    delete "/logout" => "devise/sessions#destroy"
   end
 
   get 'dashboard/dashboard_v1'
@@ -96,6 +101,8 @@ Rails.application.routes.draw do
   post '/api/xeditable' => 'api#xeditable'
   get '/api/xeditable-groups' => 'api#xeditablegroups'
 
+
+
   # the rest goes to root
-  # get '*path' => redirect('/')
+  get '*path' => redirect('/')
 end

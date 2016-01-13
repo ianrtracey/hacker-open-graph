@@ -1,4 +1,4 @@
-<h3>Hacker Profile
+<%= link_to "< Back", root_path %><h3>Hacker Profile
 </h3>
 <% flash.each do |name, msg| %>
    
@@ -18,7 +18,7 @@
    </div>
    </div>
    <div class="col-lg-12">
-   <iframe src=<%= image_path("resumes/#{@hacker.id}.pdf") %> width="100%" height="780" style="border: none;"> </iframe>
+   <iframe src=<%= image_path("resumes/#{@hacker.id}.pdf") %> width="100%" height="1500" style="border: none;"> </iframe>
 
    </div>
 </div>
