@@ -14,13 +14,22 @@ namespace :github do
 			end
 		end
 
+		puts github_names.count
+
 		github_names.each do |github_name|
+			begin
 			user = client.user(github_name)
+			puts user.name
 			if !user.nil?
-					repos = client.user(github_name).repos 
+					repos = user.rels[:repos].get.data 
+					puts repos.count
 				if !repos.nil?
-				puts client.user(github_name).repos.get.data.count
+				languages = repos.map{ |r| r.rels[:languages].get.data }
+				puts languages.to_h
 				end
+			end
+			rescue
+				puts "Error reaching username with Github API"
 			end
 		end
 	end

@@ -34,6 +34,8 @@ gem 'pg'
 
 gem 'octokit'
 
+gem 'swot'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

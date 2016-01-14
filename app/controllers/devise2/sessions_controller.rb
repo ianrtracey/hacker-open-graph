@@ -1,10 +1,11 @@
-class Session::SessionsController < Devise::SessionsController
+class Devise2::SessionsController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
 
    #GET /resource/sign_in
    def new
-    @tests = "hi"
-    super
+    # @tests = "hi"
+    # super
+    s
    end
 
   # POST /resource/sign_in

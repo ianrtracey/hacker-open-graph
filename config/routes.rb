@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  devise_for :users, controllers: { sessions: "session" }
+  devise_for :users
   # defaults to dashboard
   root :to => 'dashboard#dashboard_v1'
   
@@ -104,5 +104,5 @@ Rails.application.routes.draw do
 
 
   # the rest goes to root
-  get '*path' => redirect('/')
+  # get '*path' => redirect('/')
 end

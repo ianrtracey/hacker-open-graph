@@ -12,7 +12,7 @@
                   </div>
                   <div class="col-xs-4">
                      <div class="panel-body text-center">
-                        <h4 class="mt0"><%= @tests %></h4>
+                        <h4 class="mt0"><%= Hacker.all.count %></h4>
                         <p class="mb0 text-muted">HACKERS</p>
                      </div>
                   </div>
@@ -25,7 +25,7 @@
                   </div>
                   <div class="col-xs-4">
                      <div class="panel-body text-center">
-                        <h4 class="mt0">600</h4>
+                        <h4 class="mt0"><%= Hacker.where(:hireable => true).count %></h4>
                         <p class="mb0 text-muted">JOB SEEKERS</p>
                      </div>
                   </div>
@@ -38,7 +38,7 @@
                   </div>
                   <div class="col-xs-4">
                      <div class="panel-body text-center">
-                        <h4 class="mt0">400</h4>
+                        <h4 class="mt0"><%= Hacker.where.not(:resume => nil).count %></h4>
                         <p class="mb0 text-muted">RESUMES</p>
                      </div>
                   </div>

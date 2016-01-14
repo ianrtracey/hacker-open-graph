@@ -11,6 +11,7 @@ class DashboardController < ApplicationController
     @account = current_user.account
     @num_resumes = @hackers.select { |x| !x.resume.nil? }.count
     @num_job_seekers = @hackers.select { |x| x.hireable }.count
+    @schools = Analytics.find(1).top_schools
   end
   def dashboard_v2
   end
