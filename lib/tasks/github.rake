@@ -5,6 +5,7 @@ namespace :github do
 		puts "logged in #{user.name}"
 		
 	task languages: :environment do
+		@analytics = Analytics.find(1)
 		@hackers = Hacker.all
 		github_names = []
 		@hackers.each do |hacker|
@@ -15,7 +16,7 @@ namespace :github do
 		end
 
 		puts github_names.count
-
+		languages = {}
 		github_names.each do |github_name|
 			begin
 			user = client.user(github_name)
@@ -24,12 +25,14 @@ namespace :github do
 					repos = user.rels[:repos].get.data 
 					puts repos.count
 				if !repos.nil?
-				languages = repos.map{ |r| r.rels[:languages].get.data }
-				puts languages.to_h
+				repos_languages = repos.map{ |r| r.rels[:languages].get.data.to_h }
 				end
 			end
-			rescue
-				puts "Error reaching username with Github API"
+			puts "dones."
+			@analytics.add_languages(repos_languages)
+			puts @analytics
+			@analytics.update_attribute(:github_stats, @analytics.github_stats)
+
 			end
 		end
 	end

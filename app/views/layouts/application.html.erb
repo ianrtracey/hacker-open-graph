@@ -20,11 +20,9 @@
 </head>
 
 <body>
-<% if flash[:alert] %>
-  <%=flash[:alert]%>
-<%end%>
+
 <% if user_signed_in? %>
-   <div class="wrapper">
+   <div class="wrapper" >
 
       <!-- top navbar-->
       <header class="topnavbar-wrapper">
@@ -42,7 +40,12 @@
       <section>
          <!-- Page content-->
 <% end %>
-         <div class="content-wrapper">
+         <div class="content-wrapper" >
+         <% if flash[:alert] %>
+<div role="alert" class="alert alert-danger">
+   <p><%=flash[:alert]%></p>
+</div>
+<%end%>
             <%= yield %>
          </div>
       </section>

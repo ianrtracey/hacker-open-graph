@@ -22,6 +22,7 @@ module Angle
     
     # setup bower components folder for lookup
     config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+    config.assets.paths << Rails.root.join('resumes')
     # fonts
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     # images

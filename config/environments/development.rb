@@ -18,6 +18,11 @@ Rails.application.configure do
 
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
+  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.delivery_method = :letter_opener
+
+
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

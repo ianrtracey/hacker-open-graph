@@ -1,17 +1,17 @@
 <div class="panel-body bg-inverse">
    <div class="row row-table text-center">
      <% if external_profile_link_is_valid(@hacker.github) %>
-      <div class="col-xs-4">
+      <div class="col-xs-3">
          <%= link_to '<em class="fa fa-github fa-2x"></em><p class="m0 text-muted">Github</p>'.html_safe, @hacker.github, {:style => "text-decoration:none"} %>
       </div> 
      <% end %>
      <% if external_profile_link_is_valid(@hacker.github) %>
-      <div class="col-xs-4">
+      <div class="col-xs-3">
          <%= link_to '<em class="fa fa-linkedin fa-2x"></em><p class="m0 text-muted">Linkedin</p>'.html_safe, @hacker.linkedin %>
       </div>
       <% end %>
       <% if !@hacker.resume.nil? %>
-      <div class="col-xs-4">
+      <div class="col-xs-3">
          <%= link_to '<em class="fa fa-file-text-o fa-2x"></em><p class="m0 text-muted">Resume</p>'.html_safe, @hacker.resume %>
       </div>
       <% end %>

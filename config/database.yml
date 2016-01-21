@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: Devi_production
+  database: Devi_Production
   username: Devi
   password: <%= ENV['DEVI_DATABASE_PASSWORD'] %>

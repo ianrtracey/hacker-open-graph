@@ -5,12 +5,13 @@ gem 'rails', '4.1.8'
 
 # HEROKU doesn't support sqlite3. 
 # Comment this gem
-gem 'sqlite3'
+gem 'sqlite3', :group => [:development, :test]
 # and uncomment the following
-# gem 'pg'
-# gem 'thin'
+# gem 'pg', '0.18.1', :group => :production
+gem 'thin', :group => :production
 
 gem 'devise'
+gem 'devise_invitable'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.1'
@@ -32,10 +33,15 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'pg'
 
+gem 'letter_opener', :group => :development
+
 gem 'octokit'
 
 gem 'swot'
 
+gem 'pdf-reader'
+
+gem 'rails_12factor', :group => :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

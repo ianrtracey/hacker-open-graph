@@ -8,6 +8,7 @@ class HackersController < ApplicationController
 
 	def show
 	  @hacker = Hacker.find(params[:id])
+	  @pdf = ""
 	end
 
 	def favorite

@@ -1,27 +1,56 @@
 <div class="content-heading">
    <!-- START Language list-->
    <div class="pull-right">
-      <div class="btn-group">
-         <button type="button" data-toggle="dropdown" class="btn btn-default">English</button>
-         <ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
-            <li><a href="#" data-set-lang="en">English</a>
-            </li>
-            <li><a href="#" data-set-lang="es">Spanish</a>
-            </li>
-         </ul>
-      </div>
+
    </div>
    <!-- END Language list    -->
-   <%= current_user.account.name %>
+<!--    <img src=<%= image_path("angle/logo.png") %> />
+ -->   <%= current_user.account.name %>
    <small>Welcome to Hack Arizona!</small>
 </div>
 <div class="row">
+
+
    
-   <div class="col-xs-6">
-         <h4>Schools</h4>
-         <%= @schools %>
+   <div class="col-xs-4">
+               <!-- START panel tab-->
+            <div role="tabpanel" class="panel">
+               <!-- Nav tabs-->
+               <ul role="tablist" class="nav nav-tabs nav-justified">
+                  <li role="presentation" class="active">
+                     <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+                        <em class="fa fa-clock-o fa-fw"></em>Most Popular Schools</a>
+                  </li>
+
+               </ul>
+               <!-- Tab panes-->
+               <div class="tab-content p0">
+                  <div id="home" role="tabpanel" class="tab-pane active">
+                     <!-- START list group-->
+                     <div class="list-group mb0">
+                     <% i = 0 %>
+                     <% @schools[1].each do |school| %>
+                        <a href="#" class="list-group-item">
+                           
+                           <strong><%= "#{i+=1}. "%></strong><%= school[0] %></a>
+                     <% end %>
+
+                     </div>
+                     <!-- END list group-->
+                     <div class="panel-footer text-right"><a href="#" class="btn btn-default btn-sm">View All Schools</a>
+                     </div>
+                  </div>
+                  <div id="profile" role="tabpanel" class="tab-pane">
+                     <!-- START table responsive-->
+
+                     <!-- END table responsive-->
+                     <div class="panel-footer text-right"><a href="#" class="btn btn-default btn-sm">View All Transactions</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
    </div>
-   <div class="col-xs-6">
+   <div class="col-xs-8">
          <h4>Languages</h4>
          <%= @schools %>
    </div>

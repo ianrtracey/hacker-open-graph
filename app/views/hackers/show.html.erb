@@ -8,18 +8,18 @@
    
 <% end %>
 <div class="row">
-   <div class="col-xs-6">
-   	<!-- START widget-->
-      <%= render 'profile_card' %>
-      <!-- END widget-->
-   </div>
-   <div class="col-xs-6">
-   <%= render 'interests_learn' %>
-   </div>
-   </div>
    <div class="col-lg-12">
-   <iframe src=<%= Rails.root+"resumes/#{@hacker.id}.pdf" %> width="100%" height="1500" style="border: none;"> </iframe>
-
+            <%= render 'profile_card' %>
+     </div>
+   </div>
+   <div class="container-fluid">
+      <div class="row-fluid">
+         <div class="span12">
+            <div class="well well-sm" style="max-width: 840px">
+               <img src=<%= image_path("resumes/#{@hacker.id}.svg") %> />
+            </div>
+         </div>
+      </div>
    </div>
 </div>
 </div>

@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   get '/widgets' => 'widgets#index'
   get '/documentation' => 'documentation#index'
 
+  resources :analytics do
+    collection do
+      get 'schools'
+    end
+  end
+
   resources :hackers do
     member do
       get 'favorite'
